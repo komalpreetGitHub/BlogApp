@@ -23,16 +23,20 @@
   
   .home,
   .logout,
-  .blog,
-  .login,
-  .signup{
+  .blog{
       text-decoration: none;
       font-size: 17px;
       padding: 10px 20px;
       margin: 0 10px;
       cursor: pointer;
       color: black;
+      
   } 
+
+  .home,
+  .logout{
+    margin-top:5px ;
+  }
  
   
   .mobile-menu-icon{

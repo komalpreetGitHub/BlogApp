@@ -14,7 +14,7 @@ export default function Navbar () {
              <h3 className='logo'>BLOG</h3>
              <ul className={isMobile? "nav-links-mobile" : "nav-links"}
              onClick={() => setIsMobile(false)}>
-                 <Link to="" className='blog'>
+                 <Link to="/blog" className='blog'>
                     <li><button className='form_btn'>Add Blog</button></li>
                    </Link>
                    <Link to="/" className='home'>
