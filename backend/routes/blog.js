@@ -1,11 +1,10 @@
-const storage = require("../db");
+const {storage} = require("../db");
 const express = require("express");
 const zod = require("zod");
-const jwt = require("jsonwebtoken");
 const multer = require("multer");
-const Blog = require("../db");
+const {Blog} = require("../db");
 const {ref,getDownloadURL,uploadBytesResumable} = require("firebase/storage")
-const { uploadBytesResumable } = require("firebase/storage");
+
 
 
 require("dotenv").config();
@@ -16,10 +15,14 @@ const blogValidation = zod.object({
     description: zod.string()
 })
 
-const upload = multer({storage:multer.memoryStorage})
+const upload = multer({storage: multer.memoryStorage()})
 
 blogRouter.post("/createpost" ,upload.single("filename"), async (req,res) =>{
     const body = req.body;
+if(!req.file){
+    console.log("file not uploaded")
+}
+
 
     const success = blogValidation.safeParse(body);
     if(!success){
@@ -27,7 +30,7 @@ blogRouter.post("/createpost" ,upload.single("filename"), async (req,res) =>{
     }
 try {
     const dataTime = Date.now()
-    const storageRef = ref(storage, `${req.file.original + " " + dataTime}`)
+    const storageRef = ref(storage, `ECommerce/${req.file.originalname + " " + dataTime}`)
     const metadata = {
         contentType:req.file.mimetype
     }
@@ -36,7 +39,7 @@ try {
 
     const Blogdata = await  Blog.create({
         title:body.title,
-        description:body.title,
+        description:body.description,
         img:downloadURL
 
     })
@@ -50,5 +53,14 @@ try {
 }
 }
 )
+
+blogRouter.get("/allblogs" , async(req,res) =>{
+    try {
+        const response = await Blog.find({})
+        return res.json({blog:response})
+    } catch (error) {
+        return res.status(403).json({msg:"error while fetching blogs"})
+    }
+})
 
 module.exports = blogRouter;

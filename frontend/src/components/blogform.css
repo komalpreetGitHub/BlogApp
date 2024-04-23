@@ -2,13 +2,16 @@
   /* Form container */
   .form-container {
     margin: 20px auto;
-    max-width: 600px;
+    max-width: 500px;
     padding: 25px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 60px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin-top: 22px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
+
+
   /* Input field styling */
   .label-input {
     margin-bottom: 15px;
@@ -26,6 +29,12 @@
     border-radius: 5px;
     box-sizing: border-box;
   }
+
+  .description{height: 100px;
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    }
   
   /* Button styling */
   .form-button {

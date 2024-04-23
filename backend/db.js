@@ -1,7 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
-const initializeApp = require("firebase/app")
-const getStorage = require("firebase/storage");
+
+const {initializeApp} = require("firebase/app")
+const {getStorage} = require("firebase/storage");
 const mongoose = require("mongoose")
 mongoose.connect("mongodb://localhost:27017/Blogapp")
 .then(() => {
@@ -28,17 +27,23 @@ const userSchema = new mongoose.Schema({
     password: String
 })
 
+
+const app = initializeApp(firebaseConfig) 
+const storage = getStorage(app)  
+
+
+const user = mongoose.model("user" ,userSchema)
+
 const blogSchema = new mongoose.Schema({
     title: String,
     description:String,
     img:String
 })
 
- const app = initializeApp(firebaseConfig) 
- const storage = getStorage(app)
 
-const User = mongoose.model("user" ,userSchema)
+
+
 
 const Blog = mongoose.model("blog" , blogSchema)
 
-module.exports = {User, storage, Blog};
+module.exports = {user, storage, Blog};

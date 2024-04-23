@@ -14,19 +14,13 @@ export default function Navbar () {
              <h3 className='logo'>BLOG</h3>
              <ul className={isMobile? "nav-links-mobile" : "nav-links"}
              onClick={() => setIsMobile(false)}>
-                 <Link to="/blog" className='blog'>
+                 <Link to="/crtblog" className='blog'>
                     <li><button className='form_btn'>Add Blog</button></li>
                    </Link>
                    <Link to="/" className='home'>
                     <li>Home</li>
                    </Link>
-                
-                   {/* <Link to="/login" className='login'>
-                    <li>Login</li>
-                   </Link>
-                   <Link to="/signup" className='signup'>
-                    <li>Signup</li>
-                   </Link> */}
+    
                    <Link to="" className='logout'>
                     <li>Logout</li>
                    </Link>

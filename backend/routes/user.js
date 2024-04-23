@@ -2,7 +2,7 @@ const express = require("express");
 const zod = require("zod");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs');
-const user = require("../db");
+const {user} = require("../db");
 
 require("dotenv").config();
 const userRouter = express.Router();
@@ -14,7 +14,7 @@ const signupValidation = zod.object({
     email: zod.string().email(),
     password: zod.string().min(6),
 
-})
+});
 
 //forsignup
 userRouter.post("/signup" ,async (req,res) => {

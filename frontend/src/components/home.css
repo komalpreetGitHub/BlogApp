@@ -1,0 +1,23 @@
+
+.blog-container {
+    flex-wrap: wrap;
+  }
+  
+  .blog-item {
+    width: 30%;
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  .blog-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .blog-description {
+    font-size: 18px;
+    color: #555;
+  }
+  
