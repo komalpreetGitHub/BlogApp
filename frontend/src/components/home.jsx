@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Blog from "./blog";
 import axios from "axios";
-import './home.css'
+
 
 
 axios.defaults.baseURL = "http://localhost:4500/";
@@ -26,8 +26,9 @@ export default function Home() {
     <div className="blog-container"> 
       {blog.map((item, index) => (
         <div className="blog-item" key={index}>
-          <h2 className="blog-title">{item.title}</h2> 
-          <p className="blog-description">{item.description}</p>
+             <Blog title = {item.title}
+           description= {item.description} image = {item.img}/> 
+
         </div>
       ))}
     </div>

@@ -169,19 +169,19 @@ export default function Crtblog() {
           <br></br>
           <LabeledInput
             type="text"
-            placeholder="title"
-            name="Title" 
+            placeholder="Title"
+            name="title" // Corrected capitalization here
             onChange={handleChange}
             errors={errors.title}
           />
           <br></br>
           <label>
-            <h2>Description</h2>
+            <h9>Description</h9>
             <br></br>
             <textarea
               type="text"
               className="description"
-              name="description" 
+              name="description" // Corrected capitalization here
               onChange={handleChange}
             />
              {errors.description && <span className="error">{errors.description}</span>}

@@ -1,11 +1,11 @@
 
-const {initializeApp} = require("firebase/app")
-const {getStorage} = require("firebase/storage");
+const { initializeApp } = require("firebase/app")
+const { getStorage } = require("firebase/storage");
 const mongoose = require("mongoose")
 mongoose.connect("mongodb://localhost:27017/Blogapp")
-.then(() => {
-    console.log("mongodb connected")
-})
+    .then(() => {
+        console.log("mongodb connected")
+    })
 
 const firebaseConfig = {
     apiKey: "AIzaSyD4olIgYD-f4oPn5qk7_Ier8eIJHHbJYqM",
@@ -15,7 +15,7 @@ const firebaseConfig = {
     messagingSenderId: "889757447485",
     appId: "1:889757447485:web:740b9c5675c9226d0ec154",
     measurementId: "G-M6JMN8RXXP"
-  };
+};
 
 
 
@@ -28,22 +28,22 @@ const userSchema = new mongoose.Schema({
 })
 
 
-const app = initializeApp(firebaseConfig) 
-const storage = getStorage(app)  
+const app = initializeApp(firebaseConfig)
+const storage = getStorage(app)
 
 
-const user = mongoose.model("user" ,userSchema)
+const user = mongoose.model("user", userSchema)
 
 const blogSchema = new mongoose.Schema({
     title: String,
-    description:String,
-    img:String
+    description: String,
+    img: String
 })
 
 
 
 
 
-const Blog = mongoose.model("blog" , blogSchema)
+const Blog = mongoose.model("blog", blogSchema)
 
-module.exports = {user, storage, Blog};
+module.exports = { user, storage, Blog };

@@ -1,0 +1,42 @@
+.latest_blog {
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    transition: transform 0.3s ease;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 25%;
+  }
+  
+  .latest_blog:hover {
+    transform: translateY(-5px);
+  }
+  
+  
+  .blogs h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .blogs p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* Media query for tablets */
+  @media only screen and (max-width: 768px) {
+    .latest_blog {
+      width: calc(50% - 20px);
+    }
+  }
+  
+  /* Media query for mobile devices */
+  @media only screen and (max-width: 480px) {
+    .latest_blog {
+      width: calc(100% - 20px); 
+    }
+  }
+  
