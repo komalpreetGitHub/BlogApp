@@ -45,7 +45,10 @@ userRouter.post("/signup" ,async (req,res) => {
          })
 
          const token = jwt.sign(response._id.toHexString() , process.env.SECRET)
-         return res.json({token:token})
+
+         return res.json({name:response.firstname,
+        token:token});
+
     } catch (error) {
         console.log(error)
         return res.json({msg:"Error while signing up"})
@@ -72,10 +75,14 @@ userRouter.post("/login" ,async (req,res) =>{
      if(!Users){
         return res.status(403).json({msg:"enter correct email"})
      }
-     const passCompare = bcrypt.compare(body.password , Users.password)
+     const passCompare =  bcrypt.compare(body.password , Users.password)
+     
      if(passCompare){
         const token = jwt.sign(Users._id.toHexString(),process.env.SECRET);
-        return res.json({token:token});
+        
+        return res.json({name:Users.firstname,
+            token:token});
+
      }
      else{
         return res.status(403).json({error:"password does not match"})

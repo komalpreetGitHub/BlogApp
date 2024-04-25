@@ -14,8 +14,14 @@ export default function Home() {
 
   useEffect(()=>{
     async function serverCall () {
-      const response = await axios.get("blog/allblogs")
-      setBlog(response.data.blog)
+      try{
+        const response = await axios.get("blog/allblogs")
+        setBlog(response.data.blog);
+        console.log(response.data.blog)
+      }
+      catch(error){
+        console.log(error)
+      }
     }
     serverCall();
   },[])
@@ -27,7 +33,8 @@ export default function Home() {
       {blog.map((item, index) => (
         <div className="blog-item" key={index}>
              <Blog title = {item.title}
-           description= {item.description} image = {item.img}/> 
+           description= {item.description} image = {item.img}
+           date = {item.date}/> 
 
         </div>
       ))}

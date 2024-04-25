@@ -3,6 +3,7 @@ const express = require("express");
 const zod = require("zod");
 const multer = require("multer");
 const { Blog } = require("../db");
+const Auth = require('../middleware/auth')
 const { ref, getDownloadURL, uploadBytesResumable } = require("firebase/storage")
 
 
@@ -17,7 +18,9 @@ const blogValidation = zod.object({
 
 const upload = multer({ storage: multer.memoryStorage() })
 
-blogRouter.post("/createpost", upload.single("filename"), async (req, res) => {
+const multiple =  [Auth , upload.single("filename")]
+
+blogRouter.post("/createpost",multiple , async (req, res) => {
     const body = req.body;
     if (!req.file) {
         console.log("file not uploaded")
@@ -41,7 +44,9 @@ blogRouter.post("/createpost", upload.single("filename"), async (req, res) => {
         const Blogdata = await Blog.create({
             title: body.title,
             description: body.description,
-            img: downloadURL
+            img: downloadURL,
+            date: Date.now(),
+            userId: req.userId
 
         })
         return res.json({

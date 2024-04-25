@@ -1,13 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './nav.css';
 import { useState } from 'react';
 import { IoMdMenu } from "react-icons/io";
 import { FaTimes } from "react-icons/fa";
 
 export default function Navbar () {
-
+const navigate = useNavigate();
     const[isMobile,setIsMobile] = useState(false);
+
+    function logout(){
+        localStorage.removeItem("token")
+        navigate("/signup")
+    }
+
 
     return(
         <nav className='navbar'>
@@ -21,9 +27,9 @@ export default function Navbar () {
                     <li>Home</li>
                    </Link>
     
-                   <Link to="" className='logout'>
-                    <li>Logout</li>
-                   </Link>
+                   <li className='logout' onClick={logout}>
+                    Logout</li>
+                   
              </ul>
              <button className='mobile-menu-icon'
              onClick={() => setIsMobile(!isMobile)}>
