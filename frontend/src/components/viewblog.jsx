@@ -15,7 +15,7 @@ export default function ViewBlog() {
     return <>
         <Navbar />
         <div className="view">
-            <h1>{product.dates}</h1>
+            <h1 style={{fontSize:"18px"}} className="date">{product.dates}</h1>
             <h1>{product.title}</h1>
             <img src={product.image} className="image" alt="" />
             <p>{product.description}</p>

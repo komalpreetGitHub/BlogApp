@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Blog from "./blog";
 import axios from "axios";
+import './blog.css'
 
 
 
@@ -31,7 +32,8 @@ export default function Home() {
       <center>
         <div className="blog-container">
           {blog.map((item, index) => (
-            <div className="blog-item" key={index}>
+            <div className="blog-item" 
+             key={index}>
               <Blog title={item.title}
                 description={item.description} image={item.img}
                 date={item.date}

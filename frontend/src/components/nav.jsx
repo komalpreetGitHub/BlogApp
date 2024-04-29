@@ -39,10 +39,7 @@ export default function Navbar() {
                     <li><button className='form_btn'>Add Blog</button></li>
                 </Link>
 
-                  {login ? (
-                    <Link to ="/" className='avatar'> <li>{username}</li></Link>
-                      ) : null}
-                
+
 
                 <Link to="/" className='home'>
                     <li>Home</li>
@@ -51,6 +48,12 @@ export default function Navbar() {
                     <li className='logout' onClick={logout}>
                         Logout
                     </li>) : null}
+
+
+                {login ? (
+                    <Link to="/" className='avatar'> <li>{username}</li></Link>
+                ) : null}
+
 
 
             </ul>
