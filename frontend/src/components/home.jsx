@@ -12,35 +12,36 @@ export default function Home() {
 
   const [blog, setBlog] = useState([]);
 
-  useEffect(()=>{
-    async function serverCall () {
-      try{
-        const response = await axios.get("blog/allblogs")
-        setBlog(response.data.blog);
-        console.log(response.data.blog)
-      }
-      catch(error){
-        console.log(error)
-      }
+  useEffect(() => {
+    async function serverCall() {
+
+      const response = await axios.get("blog/allblogs")
+      setBlog(response.data.blog);
+      console.log(response.data.blog)
+
     }
     serverCall();
-  },[])
+  }, [])
+
+  const username = localStorage.getItem("name")?.slice(0, 1)
+
   return (
     <>
-    <Navbar/>
-    <center>
-    <div className="blog-container"> 
-      {blog.map((item, index) => (
-        <div className="blog-item" key={index}>
-             <Blog title = {item.title}
-           description= {item.description} image = {item.img}
-           date = {item.date}/> 
+      <Navbar />
+      <center>
+        <div className="blog-container">
+          {blog.map((item, index) => (
+            <div className="blog-item" key={index}>
+              <Blog title={item.title}
+                description={item.description} image={item.img}
+                date={item.date}
+                username={item.username} />
 
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-    </center>
-  
+      </center>
+
     </>
   );
 }

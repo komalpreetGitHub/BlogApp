@@ -32,7 +32,8 @@ blogRouter.post("/createpost",multiple , async (req, res) => {
         return res.status(403).json({ msg: "invaild data" })
     }
     try {
-        const dataTime = Date.now()
+        const dataTime = Date.now();
+        
         const storageRef = ref(storage, `Blog/${req.file.originalname + " " + dataTime}`)
         const metadata = {
             contentType: req.file.mimetype

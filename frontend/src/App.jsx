@@ -4,6 +4,9 @@ import Signup from './Registration/signup';
 import Login from './Registration/login';
 import Blog from './components/blogform';
 import ViewBlog from './components/viewblog';
+import Email from './Forgot/email';
+import Otp from './Forgot/otp';
+import Resetpass from './Forgot/resetpass';
 
 export default function App(){
     return(
@@ -16,7 +19,9 @@ export default function App(){
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/crtblog" element={<Blog/>}></Route>
             <Route path="/view" element={<ViewBlog/>}></Route>
-
+            <Route path="/email" element={<Email/>}></Route>
+            <Route path="/otp" element={<Otp/>}></Route>
+            <Route path="/resetpass" element={<Resetpass/>}></Route>
 
           
 

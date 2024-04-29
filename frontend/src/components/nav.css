@@ -14,12 +14,25 @@
         cursor: pointer;
         font-family: Georgia, 'Times New Roman', Times, serif;
         }  
+
+        /* .a{
+            margin-top: -10px;
+            margin-left: 5px;
+        } */
   
   .nav-links{display: flex;
              justify-content: flex-end;
              list-style: none;
              width: 75%;
-             }          
+             }   
+             
+             
+   .avatar{
+    text-decoration: none;
+    margin-top: 16px;
+    
+
+             }
   
   .home,
   .logout,

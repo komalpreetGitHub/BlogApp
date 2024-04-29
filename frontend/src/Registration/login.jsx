@@ -64,7 +64,7 @@ const Login = () => {
                     <input type="password" name="password" value={formData.password} onChange={handleChange} />
                     {errors.password && <span className="error">{errors.password}</span>}
                 </div>
-                <Link to="">Forgot Password</Link><br></br><br></br>
+                <Link to="/email">Forgot Password</Link><br></br><br></br>
                 <button type="submit" className='form_btn'>Log in</button>
                 Don't have an account <span>   </span>
                 <Link to='/signup'>

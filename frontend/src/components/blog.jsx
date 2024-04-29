@@ -2,21 +2,27 @@ import { useNavigate } from "react-router-dom";
 import './blog.css'
 
 
-export default function Blog ({title,description,image, date}) {
+export default function Blog({ title, description, image, date ,username}) {
 
     const navigate = useNavigate();
-    function handleclick(){
-        navigate('/view', {state :{product:{title,description,image,date}}})
+
+    const dateTime = date?.toString();
+    const dates = dateTime?.slice(0, 10)
+
+    function handleclick() {
+
+        navigate('/view', { state: { product: { title, description, image, dates,username } } })
     }
-    const dateTime = date.toString()
-    const dates = dateTime.slice(0,10)
-    return(
+
+    return (
         <div onClick={handleclick} className="latest_blog">
             <div className="blogs">
+                <h1 className="avatar-blog">{username}</h1>
                 <p>{dates}</p>
-            <h1>{title}</h1>
-            <p>{description.slice(0,100) + "..."}</p>
-          </div>
+                <img src={image} width={100} />
+                <h1>{title}</h1>
+                <p>{description?.slice(0, 100) + "..."}</p>
+            </div>
         </div>
     );
 }
