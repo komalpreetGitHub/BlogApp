@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 
+axios.defaults.baseURL = "http://localhost:4500/";
 
 const Email = () => {
     const [formData, setFormData] = useState({
@@ -31,14 +32,28 @@ const Email = () => {
         setErrors(errors);
 
         if (Object.keys(errors).length === 0) {
+           
             try {
-                navigate("/otp")
+
+                const otp = Math.floor(1000 + Math.random() * 9000);
+                console.log("Generated OTP:", otp);
+               
+                const response = await axios.post('/user/otp', { email: formData.email, otp });
+                
+                if (response.status === 200) {
+                    const otp = response.data.otp;
+                    console.log("Generated OTP:", otp);
+                    navigate("/otp", { state: { otp:{otp} } });
+                } else {
+                    alert("Failed to generate OTP");
+                }
             } catch (error) {
                 console.error("Error:", error);
-                alert("email not found")
+                alert("Failed to generate OTP");
             }
         }
     };
+        
 
     return (
         <div className="signup-form-container">

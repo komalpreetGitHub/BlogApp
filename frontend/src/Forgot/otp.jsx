@@ -8,6 +8,8 @@ const Otp = () => {
 
     const [errors, setErrors] = useState({});
 
+
+    //for numbers
     const handleChange = (index, value) => {
         if (/^\d*$/.test(value)) {
             const newOtp = [...otp];
