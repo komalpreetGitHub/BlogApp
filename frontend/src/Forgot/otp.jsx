@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './otp.css';
 
 const Otp = () => {
     const [otp, setOtp] = useState(['', '', '', '']);
     const navigate = useNavigate();
+
+     const location = useLocation()
+     const OTP = location.state?.otp;
 
     const [errors, setErrors] = useState({});
 
@@ -24,6 +27,8 @@ const Otp = () => {
         let errors = {};
 
         const enteredOtp = otp.join('');
+     const strng = OTP.otp.toString();
+
         if (!enteredOtp) {
             errors.password = "OTP is required";
         } else if (!/^\d{4}$/i.test(enteredOtp)) {
@@ -34,7 +39,13 @@ const Otp = () => {
 
         if (Object.keys(errors).length === 0) {
             try {
-                navigate("/resetpass");
+
+                if(strng==enteredOtp){
+                    navigate("/resetpass")
+                }else{
+                    alert("otp incorrect")
+                }
+                
             } catch (error) {
                 console.error("Error:", error);
                 alert("User not found");

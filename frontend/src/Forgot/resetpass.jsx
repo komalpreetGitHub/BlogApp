@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 // import './signup.css'; 
+import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
-
+axios.defaults.baseURL = "http://localhost:4500/";
 
 const Resetpass = () => {
     const [formData, setFormData] = useState({
@@ -36,10 +37,17 @@ const Resetpass = () => {
 
         if (Object.keys(errors).length === 0) {
             try {
+           const email = localStorage.getItem("email")
+                const response = await axios.put('/user/newpass',
+                 { email: email, 
+                    password:formData.password });
+
+                    localStorage.clear();
+                    alert("password changed")
                 navigate("/");
             } catch (error) {
                 console.error("Error:", error);
-                alert("email id already exist");
+                alert("error while updating");
             }
         }
     };

@@ -112,13 +112,17 @@ userRouter.post("/otp", async (req, res) => {
     try {
         const Users = await user.findOne({
             email: body.email,
-        })
+        });
+
+        console.log(Users)
+
         if (!Users) {
             return res.status(403).json({ msg: "user not found" })
         }
 
-        sendEmail({email:body.email,OTP:body.OTP})
-        .then((response) => {return res.send(response.msg)})
+        sendEmail({email:body.email,
+            OTP:body.OTP})
+        .then((response) => {return res.send(Users.email)})
         .catch((response) => {return res.send(response.msg)})
        
     }
@@ -130,6 +134,24 @@ userRouter.post("/otp", async (req, res) => {
 
 })
 
+
+//for update password
+
+userRouter.put("/newpass" ,async(req,res) => {
+    const body = req.body;
+console.log(body)
+    
+        try{
+            const response = await user.updateOne({
+                email:body.email
+            },{password:body.password})
+            return res.json({msg:"password updated"})
+        
+    }catch (error) {
+        return res.status(404)({msg:"password error"})
+    }
+    
+})
 
 
 module.exports = userRouter;
