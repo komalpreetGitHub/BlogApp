@@ -7,6 +7,7 @@ import ViewBlog from './components/viewblog';
 import Email from './Forgot/email';
 import Otp from './Forgot/otp';
 import Resetpass from './Forgot/resetpass';
+import Homeuser from './components/homeuser';
 
 export default function App(){
     return(
@@ -22,6 +23,7 @@ export default function App(){
             <Route path="/email" element={<Email/>}></Route>
             <Route path="/otp" element={<Otp/>}></Route>
             <Route path="/resetpass" element={<Resetpass/>}></Route>
+            <Route path="/userdata" element={<Homeuser/>}></Route>
 
           
 

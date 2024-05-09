@@ -12,6 +12,7 @@ axios.defaults.baseURL = "http://localhost:4500/";
 export default function Home() {
 
   const [blog, setBlog] = useState([]);
+  const[author, setAuthor] = useState();
 
   useEffect(() => {
     async function serverCall() {
@@ -33,7 +34,8 @@ export default function Home() {
         <div className="blog-container">
           {blog.map((item, index) => (
         
-              <Blog key={index}
+              <Blog author={item.authorname}
+              key={index}
               title={item.title}
                 description={item.description} image={item.img}
                 date={item.date}

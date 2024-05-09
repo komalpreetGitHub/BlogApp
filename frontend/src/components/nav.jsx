@@ -51,7 +51,7 @@ export default function Navbar() {
 
 
                 {login ? (
-                    <Link to="/" className='avatar'> <li>{username}</li></Link>
+                    <Link to="/userdata" className='avatar'> <li>{username}</li></Link>
                 ) : null}
 
 

@@ -1,0 +1,65 @@
+.all_blogs {
+    margin: 20px;
+  }
+  .all_blogs h1 {
+    margin-bottom: 10px;
+    font-size: 18px; 
+  }
+  
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  text-align: center;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #f2f2f2;
+  }
+ 
+  
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 24px;
+    color: red; 
+    display: block;
+    margin: auto;
+  }
+  
+  .delete-button:hover {
+    color: darkred;
+  }
+  
+
+
+  /* user data */
+
+.useravatar {
+    display: inline-block;
+    width: 60px; 
+    height: 60px; 
+    background-color: black; 
+    color: #fff;
+    font-size: 25px; 
+    text-align: center;
+    line-height: 60px;
+    border-radius: 50%; 
+  }
+/* 
+  .first{
+    background-color: #f2f2f2;
+  }
+   */
