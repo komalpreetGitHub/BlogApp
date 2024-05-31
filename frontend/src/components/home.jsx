@@ -7,7 +7,7 @@ import './blog.css'
 
 
 
-axios.defaults.baseURL = "http://localhost:4500/";
+axios.defaults.baseURL = "http://localhost:4000/";
 
 export default function Home() {
 

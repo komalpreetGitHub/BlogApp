@@ -13,6 +13,6 @@ app.use("/user" , userRouter)
 //for blog
 app.use("/blog" , blogRouter)
 
-app.listen(4500, () => {
+app.listen(4000, () => {
     console.log("server is running")
 })

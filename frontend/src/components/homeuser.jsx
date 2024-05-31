@@ -4,7 +4,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import Navbar from "./nav";
 import './homeuser.css';
 
-axios.defaults.baseURL = "http://localhost:4500/";
+axios.defaults.baseURL = "http://localhost:4000/";
 
 export default function Homeuser() {
   const [user, setUser] = useState({ username: "", email: "", blogs: [] });

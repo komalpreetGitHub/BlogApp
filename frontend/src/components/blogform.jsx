@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 
-axios.defaults.baseURL = "http://localhost:4500/";
+axios.defaults.baseURL = "http://localhost:4000/";
 
 export default function Crtblog() {
 

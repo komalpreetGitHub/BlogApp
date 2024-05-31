@@ -38,7 +38,7 @@ const Login = () => {
 
         if (Object.keys(errors).length === 0) {
             try {
-                const response = await axios.post("http://localhost:4500/user/login",formData)
+                const response = await axios.post("http://localhost:4000/user/login",formData)
                 localStorage.setItem("token",response.data.token)
                 localStorage.setItem("name", response.data.name)
                 navigate("/")

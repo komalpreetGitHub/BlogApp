@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
-axios.defaults.baseURL = "http://localhost:4500/";
+axios.defaults.baseURL = "http://localhost:4000/";
 
 const Resetpass = () => {
     const [formData, setFormData] = useState({

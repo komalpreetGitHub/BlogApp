@@ -3,7 +3,7 @@ import './signup.css'; // Import CSS file for styling
 import axios from "axios";
 import { useNavigate, Link } from 'react-router-dom';
 
-axios.defaults.baseURL = "http://localhost:4500/";
+axios.defaults.baseURL = "http://localhost:4000/";
 
 const Signup = () => {
     const [formData, setFormData] = useState({
